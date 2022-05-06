@@ -13,14 +13,46 @@ import tw from "twrnc";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MapView, { Marker } from "react-native-maps";
+import axios from "axios";
+import { useDeviceContext } from "twrnc";
 
 const Book = ({ route }) => {
   const { hospital } = route.params;
+
+  useDeviceContext(tw); // <- 👋
+
   const [date, setdate] = useState("");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [complains, setcomplains] = useState("");
   const [time, settime] = useState("");
+  const [hospital_id, sethospital_id] = useState(hospital?.hospital_id);
+  const [hospital_name, sethospital_name] = useState(hospital?.name);
+
+  const handleSubmit = () => {
+    if (!date || !name || !email || !complains || !time) {
+      alert("Please fill all the fields");
+      return;
+    }
+    axios
+      .post("localhost:6969/api/booking", {
+        date,
+        name,
+        email,
+        complains,
+        time,
+        hospital_id,
+        hospital_name,
+      })
+      .then((res) => {
+        console.log(res.data);
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.response.data.message);
+      });
+  };
 
   return (
     <ScrollView>
@@ -152,7 +184,7 @@ const Book = ({ route }) => {
                 style={tw`h-14 w-[48] ml-2 px-1 border border-red-200 rounded-lg bg-gray-200`}
               />
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={(e) => handleSubmit()}>
               <View style={tw`bg-blue-400  p-2 rounded-lg mt-4 py-4`}>
                 <Text style={tw`text-center text-white text-lg font-bold`}>
                   Book Consultation

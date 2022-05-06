@@ -12,11 +12,14 @@ import tw from "twrnc";
 import Greetings from "../components/greetings";
 import Hospital from "../components/hospital";
 import Input from "../components/input";
+import { useDeviceContext } from "twrnc";
 
 const Main = ({ navigation }) => {
   //remember add url to env to avoid duplication
   const [hospitals, sethospitals] = useState([]);
   const apiurl = `http://www.communitybenefitinsight.org/api/`;
+
+  useDeviceContext(tw); // <- 👋
 
   useEffect(() => {
     axios
