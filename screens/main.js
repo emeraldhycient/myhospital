@@ -14,7 +14,7 @@ import Hospital from "../components/hospital";
 import Input from "../components/input";
 
 const Main = ({ navigation }) => {
-  //remember app url to env to avoid duplication
+  //remember add url to env to avoid duplication
   const [hospitals, sethospitals] = useState([]);
   const apiurl = `http://www.communitybenefitinsight.org/api/`;
 
