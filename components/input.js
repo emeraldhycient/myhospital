@@ -9,7 +9,7 @@ const Input = () => {
     >
       <AntDesign name="search1" style={tw`text-red-300`} size={30} />
       <TextInput
-        placeholder="serach hospital"
+        placeholder="search bookings by name"
         style={tw`h-12 w-[90] rounded-lg bg-gray-200`}
       />
     </View>
