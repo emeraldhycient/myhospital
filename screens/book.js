@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import tw from "twrnc";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -21,6 +22,8 @@ const Book = ({ route }) => {
 
   useDeviceContext(tw); // <- 👋
 
+  const [isLoading, setisLoading] = useState(false);
+
   const [date, setdate] = useState("");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -30,12 +33,13 @@ const Book = ({ route }) => {
   const [hospital_name, sethospital_name] = useState(hospital?.name);
 
   const handleSubmit = () => {
+    setisLoading(true);
     if (!date || !name || !email || !complains || !time) {
       alert("Please fill all the fields");
       return;
     }
     axios
-      .post("localhost:6969/api/booking", {
+      .post(`https://myhospital1.herokuapp.com/api/booking`, {
         date,
         name,
         email,
@@ -45,12 +49,15 @@ const Book = ({ route }) => {
         hospital_name,
       })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         alert(res.data.message);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         alert(err.response.data.message);
+      })
+      .finally(() => {
+        setisLoading(false);
       });
   };
 
@@ -187,7 +194,11 @@ const Book = ({ route }) => {
             <TouchableOpacity onPress={(e) => handleSubmit()}>
               <View style={tw`bg-blue-400  p-2 rounded-lg mt-4 py-4`}>
                 <Text style={tw`text-center text-white text-lg font-bold`}>
-                  Book Consultation
+                  {isLoading ? (
+                    <ActivityIndicator size="large" color="#00ff00" />
+                  ) : (
+                    "Book Consultation"
+                  )}
                 </Text>
               </View>
             </TouchableOpacity>
