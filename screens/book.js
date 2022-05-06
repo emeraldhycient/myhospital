@@ -162,30 +162,35 @@ const Book = ({ route }) => {
             <TextInput
               placeholder="Your Name"
               value={name}
+              placeholderTextColor="black"
               onChangeText={(text) => setname(text)}
               style={tw`h-14 w-[95] my-2 px-1 border border-red-200 rounded-lg bg-gray-200`}
             />
             <TextInput
               placeholder="Email"
               value={email}
+              placeholderTextColor="black"
               onChangeText={(text) => setemail(text)}
               style={tw`h-14 w-[95] my-2 px-1 border border-red-200 rounded-lg bg-gray-200`}
             />
             <TextInput
               placeholder="Complaint"
               value={complains}
+              placeholderTextColor="black"
               onChangeText={(text) => setcomplains(text)}
               style={tw`h-14 w-[95] my-2 px-1 border border-red-200 rounded-lg bg-gray-200`}
             />
             <View style={tw`flex-row justify-evenly`}>
               <TextInput
                 placeholder="Date e.g (2020-12-12)"
+                placeholderTextColor="black"
                 value={date}
                 onChangeText={(text) => setdate(text)}
                 style={tw`h-14 w-[47] ml-2 px-1 border border-red-200 rounded-lg bg-gray-200`}
               />
               <TextInput
                 placeholder="Time e.g 10:00 AM"
+                placeholderTextColor="black"
                 value={time}
                 onChangeText={(text) => settime(text)}
                 style={tw`h-14 w-[48] ml-2 px-1 border border-red-200 rounded-lg bg-gray-200`}

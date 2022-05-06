@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     justifyContent: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 5,
   },
 });

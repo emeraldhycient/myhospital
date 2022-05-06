@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+  Platform,
+} from "react-native";
 import tw from "twrnc";
 import Entypo from "react-native-vector-icons/Entypo";
 
 const Hospital = ({ hospital, navigation }) => {
   return (
     <View
-      style={[tw`bg-red-200 h-56 rounded-2xl my-2 mx-auto`, { width: "47%" }]}
+      style={[tw`bg-red-200 h-64 rounded-2xl my-2 mx-auto`, { width: "48%" }]}
     >
       <Pressable
         onPress={() => {
@@ -19,7 +26,7 @@ const Hospital = ({ hospital, navigation }) => {
           }}
           style={tw`h-32 w-[100%] rounded-2xl`}
         />
-        <View style={tw`bg-gray-100 h-28 -mt-5 rounded-2xl px-2 pt-2`}>
+        <View style={tw`bg-gray-100 h-36 -mt-5 rounded-2xl px-2 pt-2`}>
           <Text style={tw`text-lg font-bold`}>
             {hospital ? hospital.name : "hospital api didnt work"}
           </Text>
@@ -31,7 +38,7 @@ const Hospital = ({ hospital, navigation }) => {
           </View>
           <View style={tw`flex-row mt-1  items-center`}>
             <Entypo name="location-pin" style={tw`text-red-300`} size={22} />
-            <Text style={tw`text-base ml-2 font-medium text-gray-500`}>
+            <Text style={tw`text-base ml-2 font-medium text-gray-500 w-full	`}>
               {hospital ? hospital.street_address : "115 raldweb street"}
             </Text>
           </View>
