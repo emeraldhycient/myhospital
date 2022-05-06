@@ -40,7 +40,7 @@ const Main = ({ navigation }) => {
       <View style={[tw`pt-3`, styles.container]}>
         <Greetings />
         <Input />
-        <ScrollView>
+        <ScrollView style={tw`mb-45`}>
           <View
             style={tw`flex-row flex-wrap justify-between items-center mt-6`}
           >
@@ -60,7 +60,6 @@ const Main = ({ navigation }) => {
                 <Hospital />
               </>
             )}
-            <Hospital />
           </View>
         </ScrollView>
       </View>
