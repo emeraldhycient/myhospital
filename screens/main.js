@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar";
 import { useState, useEffect } from "react";
 import {
   StyleSheet,
@@ -12,7 +13,7 @@ import Greetings from "../components/greetings";
 import Hospital from "../components/hospital";
 import Input from "../components/input";
 
-const Main = () => {
+const Main = ({ navigation }) => {
   //remember app url to env to avoid duplication
   const [hospitals, sethospitals] = useState([]);
   const apiurl = `http://www.communitybenefitinsight.org/api/`;
@@ -32,7 +33,8 @@ const Main = () => {
 
   return (
     <SafeAreaView>
-      <View style={tw`mt-6`}>
+      <StatusBar style="auto" />
+      <View style={[tw`pt-3`, styles.container]}>
         <Greetings />
         <Input />
         <ScrollView>
@@ -41,7 +43,13 @@ const Main = () => {
           >
             {hospitals.length > 0 ? (
               hospitals.map((hospital, index) => {
-                return <Hospital key={index} hospital={hospital} />;
+                return (
+                  <Hospital
+                    key={index}
+                    hospital={hospital}
+                    navigation={navigation}
+                  />
+                );
               })
             ) : (
               <>
@@ -59,4 +67,10 @@ const Main = () => {
 
 export default Main;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    paddingHorizontal: 20,
+  },
+});
