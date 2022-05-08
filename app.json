@@ -28,7 +28,11 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#FFFFFF"
             },
-            "package": "com.raldweb.myhospital"
+            "package": "com.raldweb.myhospital",
+            "config": {
+                "googleSignIn": { "apiKey": "AIzaSyBLFaKweH6XSPKmS1FmAw0mmbr6ZjUPZCo" },
+                "googleMaps": { "apiKey": "AIzaSyBLFaKweH6XSPKmS1FmAw0mmbr6ZjUPZCo" }
+            }
         },
         "web": {
             "favicon": "./assets/favicon.png"
