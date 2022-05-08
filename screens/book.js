@@ -13,7 +13,7 @@ import {
 import tw from "twrnc";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import axios from "axios";
 import { useDeviceContext } from "twrnc";
 
@@ -145,7 +145,10 @@ const Book = ({ route }) => {
 
             <View>
               <Text style={tw`text-2xl font-bold my-3`}>Location</Text>
-              <MapView style={tw`h-40 w-full rounded-md`}>
+              <MapView
+                provider={PROVIDER_GOOGLE}
+                style={tw`h-40 w-full rounded-md`}
+              >
                 <Marker
                   coordinate={{
                     latitude: 37.78825,
