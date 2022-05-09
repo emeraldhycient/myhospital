@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import Main from "./screens/main";
 import Book from "./screens/book";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const StackScreen = createNativeStackNavigator();
+const StackScreen = createStackNavigator();
 
 const MainScreen = () => (
   <StackScreen.Navigator>

@@ -145,21 +145,30 @@ const Book = ({ route }) => {
 
             <View>
               <Text style={tw`text-2xl font-bold my-3`}>Location</Text>
-              <MapView
-                provider={PROVIDER_GOOGLE}
-                style={tw`h-40 w-full rounded-md`}
-              >
-                <Marker
-                  coordinate={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                  }}
-                  title="Hospital"
-                  description={`${hospital.name}`}
-                />
-              </MapView>
+              {Platform.OS === "ios" ? (
+                <MapView
+                  provider={PROVIDER_GOOGLE}
+                  style={tw`h-40 w-full rounded-md`}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: 37.78825,
+                      longitude: -122.4324,
+                    }}
+                    title="Hospital"
+                    description={`${hospital.name}`}
+                  />
+                </MapView>
+              ) : (
+                <View
+                  style={tw`h-40 w-full bg-gray-300 rounded-md flex justify-center items-center`}
+                >
+                  <Text style={tw`text-base font-bold my-3`}>
+                    invalid google api key
+                  </Text>
+                </View>
+              )}
             </View>
-
             <Text style={tw`text-2xl font-bold my-3`}>Book Consultation</Text>
 
             <TextInput
