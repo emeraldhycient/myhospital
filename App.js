@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import Main from "./screens/main";
 import Book from "./screens/book";
