@@ -55,10 +55,9 @@ const Main = ({ navigation }) => {
                 );
               })
             ) : (
-              <>
-                <ActivityIndicator size="large" />
-                <Hospital />
-              </>
+              <View style={tw`mt-45 mx-auto`}>
+                <ActivityIndicator size="large" color={tw`text-red-300`} />
+              </View>
             )}
           </View>
         </ScrollView>
